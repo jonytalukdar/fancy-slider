@@ -70,12 +70,18 @@ const createSlider = () => {
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 1000;
   sliders.forEach((slide) => {
-    let item = document.createElement('div');
-    item.className = 'slider-item';
-    item.innerHTML = `<img class="w-100"
-    src="${slide}"
-    alt="${slide}">`;
-    sliderContainer.appendChild(item);
+    if (duration < 0 || duration < 1000) {
+      alert(
+        'Duration should not be negative or it should be at least 1 second so try 1000 or above 1000 millisecond'
+      );
+    } else {
+      let item = document.createElement('div');
+      item.className = 'slider-item';
+      item.innerHTML = `<img class="w-100"
+        src="${slide}"
+        alt="${slide}">`;
+      sliderContainer.appendChild(item);
+    }
   });
   changeSlide(0);
   timer = setInterval(function () {
