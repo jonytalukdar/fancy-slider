@@ -27,6 +27,7 @@ const showImages = (images) => {
 };
 
 const getImages = (query) => {
+  //   displaySpinner();
   fetch(
     `https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`
   )
@@ -115,17 +116,26 @@ const changeSlide = (index) => {
   items[index].style.display = 'block';
 };
 
+//  search button
+searchBtn.addEventListener('click', function () {
+  document.querySelector('.main').style.display = 'none';
+  clearInterval(timer);
+  const search = document.getElementById('search');
+  getImages(search.value);
+  sliders.length = 0;
+});
+
 /// keypress search
 document
   .getElementById('search')
   .addEventListener('keypress', function (event) {
     if (event.key == 'Enter') {
-      searchBtn.click();
+      document.getElementById('search-btn').click();
       document.querySelector('.main').style.display = 'none';
       clearInterval(timer);
-      const search = document.getElementById('search');
-      getImages(search.value);
-      sliders.length = 0;
+      //   const search = document.getElementById('search');
+      //   getImages(search.value);
+      //   sliders.length = 0;
     }
   });
 
@@ -133,3 +143,11 @@ document
 sliderBtn.addEventListener('click', function () {
   createSlider();
 });
+
+//  function for spinner
+
+const displaySpinner = () => {
+  const spinner = document.getElementById('spinner');
+  spinner.classList.remove('d-none');
+  spinner.classList.add('d-none');
+};
