@@ -49,6 +49,7 @@ const selectItem = (event, img) => {
     alert('Hey, Already added !');
   }
 };
+
 var timer;
 const createSlider = () => {
   // check slider image length
