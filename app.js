@@ -115,14 +115,21 @@ const changeSlide = (index) => {
   items[index].style.display = 'block';
 };
 
-searchBtn.addEventListener('click', function () {
-  document.querySelector('.main').style.display = 'none';
-  clearInterval(timer);
-  const search = document.getElementById('search');
-  getImages(search.value);
-  sliders.length = 0;
-});
+/// keypress search
+document
+  .getElementById('search')
+  .addEventListener('keypress', function (event) {
+    if (event.key == 'Enter') {
+      searchBtn.click();
+      document.querySelector('.main').style.display = 'none';
+      clearInterval(timer);
+      const search = document.getElementById('search');
+      getImages(search.value);
+      sliders.length = 0;
+    }
+  });
 
+//  create slider button
 sliderBtn.addEventListener('click', function () {
   createSlider();
 });
