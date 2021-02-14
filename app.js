@@ -78,7 +78,7 @@ const createSlider = () => {
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 1000;
 
-  if (duration < 0 || duration < 1000) {
+  if (duration < 0) {
     alert(
       'Duration should not be negative or it should be at least 1 second so try 1000 or above 1000 millisecond'
     );
