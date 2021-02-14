@@ -135,9 +135,6 @@ document
       document.getElementById('search-btn').click();
       document.querySelector('.main').style.display = 'none';
       clearInterval(timer);
-      //   const search = document.getElementById('search');
-      //   getImages(search.value);
-      //   sliders.length = 0;
     }
   });
 
