@@ -30,12 +30,6 @@ const showImages = (images) => {
 // function for showing image
 const getImages = async (query) => {
   displaySpinner(true);
-  // fetch(
-  //   `https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`
-  // )
-  //   .then((response) => response.json())
-  //   .then((data) => showImages(data.hits))
-  //   .catch((err) => console.log(err));
   const url = `https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`;
   const res = await fetch(url);
   const data = await res.json();
