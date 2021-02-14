@@ -36,6 +36,7 @@ const getImages = async (query) => {
   showImages(data.hits);
 };
 
+//  added and remove image
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
@@ -71,7 +72,6 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 1000;
-
   if (duration < 0) {
     alert(
       'Duration should not be negative or it should be at least 1 second so try 1000 or above 1000 millisecond'
@@ -144,7 +144,6 @@ sliderBtn.addEventListener('click', function () {
 });
 
 //  function for spinner
-
 const displaySpinner = (show) => {
   const spinner = document.getElementById('spinner');
   if (show) {
